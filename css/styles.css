@@ -152,13 +152,16 @@ button:-moz-focusring,
 [type="submit"]:-moz-focusring {
   outline: 1px dotted ButtonText; }
 
-::-moz-selection,
+::-moz-selection {
+  background: rgba(116, 125, 140, 0.9); }
+
 ::selection {
-  background: #747d8c; }
+  background: rgba(116, 125, 140, 0.9); }
 
 html,
 body {
-  color: #fff; }
+  color: #fff;
+  overflow-x: hidden; }
 
 html {
   scroll-behavior: smooth; }
@@ -178,7 +181,9 @@ h1 {
   line-height: 1.2; }
 
 h2 {
-  font-size: 2rem; }
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 4rem; }
 
 h3 {
   font-size: 1.6rem;
@@ -223,9 +228,11 @@ header {
   margin: 0 auto;
   padding: 0 2rem 2rem; }
   .container section {
-    margin: 5rem 0; }
+    margin: 4rem 0; }
     .container section:first-of-type {
       margin-top: 2rem; }
+    .container section#get-in-touch {
+      text-align: center; }
 
 nav ul {
   display: flex;
@@ -255,12 +262,14 @@ nav ul {
 button {
   color: #fff;
   padding: 1rem;
+  display: block;
+  margin: 2rem auto 0;
   overflow: hidden;
   position: relative;
   border: 1px solid white;
   background-color: #5d6470; }
   button:before {
-    content: 'Email Me';
+    content: 'Email Me!';
     top: 0;
     left: -1px;
     width: 100%;
@@ -279,9 +288,8 @@ button {
   position: relative;
   overflow: hidden; }
   .card * {
+    z-index: 3;
     transition: all .35s ease; }
-    .card *:not(.overlay) {
-      z-index: 3; }
   .card:before, .card:after {
     content: '';
     position: absolute;
@@ -297,18 +305,43 @@ button {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    background: rgba(70, 75, 84, 0.3); }
   .card:nth-child(even):before {
     background: #464b54 url("../img/night.jpg") center/cover no-repeat; }
   .card:nth-child(odd):before {
     background: #464b54 url("../img/dusk.jpg") center/cover no-repeat; }
+  .card:nth-child(1):before {
+    background: #464b54 url("../img/herminius.jpg") center/cover no-repeat; }
+  .card:nth-child(2):before {
+    background: #464b54 url("../img/n8research.jpg") center/cover no-repeat; }
+  .card:nth-child(3):before {
+    background: #464b54 url("../img/jodrell-bank.jpg") center/cover no-repeat; }
+  .card a {
+    top: 0;
+    left: 0;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    position: absolute; }
   .card h3,
   .card p {
     position: relative; }
   .card p {
     opacity: 0; }
+  .card:hover h3 {
+    text-shadow: none; }
   .card:hover p {
     opacity: 1; }
+  .card .overlay {
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: rgba(70, 75, 84, 0.7); }
 
 .reveal-bottom-right:after {
   opacity: 0;
@@ -326,9 +359,9 @@ button {
 .reveal-bottom-right p {
   position: absolute;
   right: -20px;
-  bottom: -20px;
+  bottom: 0;
   width: 200px;
-  padding: 40px;
+  padding: 40px 40px 40px 20px;
   text-align: right;
   transition-delay: 0s;
   transform: translate(20px, 20px); }
@@ -341,7 +374,7 @@ button {
 
 .reveal-bottom-right:hover:after {
   opacity: 1;
-  box-shadow: 0 0 0 900px rgba(70, 75, 84, 0.6);
+  box-shadow: 0 0 0 900px rgba(70, 75, 84, 0.7);
   transform: scale(1, 1) translate(-20px, -20px); }
 
 .reveal-bottom-right:hover p {
@@ -354,7 +387,7 @@ button {
   transition-delay: 0s;
   background-color: #000;
   transform: translate(-50%, -50%);
-  background: rgba(70, 75, 84, 0.4); }
+  background: rgba(70, 75, 84, 0.7); }
 
 .box-overlay .box-top-bottom:before, .box-overlay .box-top-bottom:after,
 .box-overlay .box-left-right:before,
@@ -451,7 +484,7 @@ button {
   transform: translate(1%, 0); }
 
 .shift-right:hover:after {
-  background: rgba(70, 75, 84, 0.4); }
+  background: rgba(70, 75, 84, 0.7); }
 
 .shift-right:hover p {
   transform: translate(0, 0); }
@@ -461,7 +494,8 @@ button {
   height: 20%;
   top: 5%;
   left: 5%;
-  border: 2px solid white; }
+  border: 2px solid white;
+  background: rgba(70, 75, 84, 0.7); }
 
 .box-container h3,
 .box-container p {
@@ -480,15 +514,138 @@ button {
   transform: translate(0, 5%); }
 
 .box-container:hover:after {
-  top: 45%;
-  height: 50%;
-  background: rgba(70, 75, 84, 0.8); }
+  top: 20%;
+  height: 75%;
+  background: rgba(70, 75, 84, 0.9); }
+  @media screen and (min-width: 1024px) {
+    .box-container:hover:after {
+      top: 30%;
+      height: 65%; } }
 
 .box-container:hover h3 {
-  top: 50%; }
+  top: 24%; }
+  @media screen and (min-width: 1024px) {
+    .box-container:hover h3 {
+      top: 35%; } }
 
 .box-container:hover p {
   transition: all .35s ease .35s; }
+
+.horizonal-lines:before {
+  transition-duration: 1s; }
+
+.horizonal-lines h3 {
+  position: absolute;
+  left: 8%; }
+
+.horizonal-lines p {
+  top: 80px;
+  left: -100%;
+  text-align: center;
+  margin-bottom: 0.2rem; }
+  .horizonal-lines p:nth-of-type(1) {
+    transition-delay: 0.1s; }
+  .horizonal-lines p:nth-of-type(2) {
+    transition-delay: 0.2s; }
+  .horizonal-lines p:nth-of-type(3) {
+    transition-delay: 0.3s; }
+
+.horizonal-lines .lines-1:before, .horizonal-lines .lines-1:after,
+.horizonal-lines .lines-2:before,
+.horizonal-lines .lines-2:after,
+.horizonal-lines .lines-3:before,
+.horizonal-lines .lines-3:after,
+.horizonal-lines .lines-4:before,
+.horizonal-lines .lines-4:after,
+.horizonal-lines .lines-5:before,
+.horizonal-lines .lines-5:after {
+  content: '';
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 30px;
+  z-index: 2;
+  position: absolute;
+  transition: all .35s ease;
+  background: rgba(70, 75, 84, 0.7); }
+
+.horizonal-lines .lines-1:after {
+  top: 150px;
+  transition-delay: .6s; }
+
+.horizonal-lines .lines-2:before {
+  top: 30px;
+  transition-delay: 0.2s; }
+
+.horizonal-lines .lines-2:after {
+  top: 180px;
+  transition-delay: 0.7s; }
+
+.horizonal-lines .lines-3:before {
+  top: 60px;
+  transition-delay: 0.3s; }
+
+.horizonal-lines .lines-3:after {
+  top: 210px;
+  transition-delay: 0.8s; }
+
+.horizonal-lines .lines-4:before {
+  top: 90px;
+  transition-delay: 0.4s; }
+
+.horizonal-lines .lines-4:after {
+  top: 240px;
+  transition-delay: 0.9s; }
+
+.horizonal-lines .lines-5:before {
+  top: 120px;
+  transition-delay: 0.5s; }
+
+.horizonal-lines .lines-5:after {
+  top: 270px;
+  transition-delay: 1s; }
+
+.horizonal-lines:hover:before {
+  transform: scale(0.75); }
+
+.horizonal-lines:hover h3 {
+  left: 50%;
+  transform: translateX(-50%); }
+
+.horizonal-lines:hover p {
+  left: 0; }
+  .horizonal-lines:hover p:nth-of-type(1) {
+    transition-delay: 0.6s; }
+  .horizonal-lines:hover p:nth-of-type(2) {
+    transition-delay: 0.7s; }
+  .horizonal-lines:hover p:nth-of-type(3) {
+    transition-delay: 0.8s; }
+
+.horizonal-lines:hover .lines-1:before, .horizonal-lines:hover .lines-1:after,
+.horizonal-lines:hover .lines-2:before,
+.horizonal-lines:hover .lines-2:after,
+.horizonal-lines:hover .lines-3:before,
+.horizonal-lines:hover .lines-3:after,
+.horizonal-lines:hover .lines-4:before,
+.horizonal-lines:hover .lines-4:after,
+.horizonal-lines:hover .lines-5:before,
+.horizonal-lines:hover .lines-5:after {
+  transform: translate(100%, 0); }
+
+.horizonal-lines:hover .lines-1:after {
+  transition-delay: .6s; }
+
+.horizonal-lines:hover .lines-2:before {
+  transition-delay: 0.2s; }
+
+.horizonal-lines:hover .lines-3:before {
+  transition-delay: 0.3s; }
+
+.horizonal-lines:hover .lines-4:before {
+  transition-delay: 0.4s; }
+
+.horizonal-lines:hover .lines-5:before {
+  transition-delay: 0.5s; }
 
 [data-aos][data-aos][data-aos-duration="400"], body[data-aos-duration="400"] [data-aos] {
   transition-duration: .4s; }
